@@ -5,17 +5,11 @@ using UnityEngine.SceneManagement;
 
 public class PlayerScript : MonoBehaviour
 {
-    public float speed, jumpSpeed;
-    public Vector3 move;
+    public float speed, jumpForce, gravityScale;
     public Rigidbody rb;
     public Animator animator;
-
     public LayerMask ground, car;
-    public Vector3 collision;
 
-    public float gravityScale;
-
-    public AnimationClip jump;
     // Start is called before the first frame update
     void Start()
     {
@@ -32,22 +26,24 @@ public class PlayerScript : MonoBehaviour
             SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
         }
 
-        if(Input.GetKeyDown(KeyCode.Return))
+        if(Input.GetKeyDown(KeyCode.Space))
         {
             if (CheckIfGrounded())
             {
-                
-                animator.Play("jumpOff");
+                animator.SetTrigger("pressedJump");
             }
+        }
+
+        if(Input.GetKey(KeyCode.DownArrow))
+        {
+            animator.SetBool("sliding", true);
         }
         else
         {
-            jumpSpeed = 0;
+            animator.SetBool("sliding", false);
         }
 
-        //constantly changes the speed
-        move = new Vector3(speed, jumpSpeed);
-       rb.AddForce(move);
+        animator.SetBool("grounded", CheckIfGrounded());
 
     }
 
@@ -58,7 +54,8 @@ public class PlayerScript : MonoBehaviour
         CheckIfGrounded();
         CheckforCar();
 
-        animator.SetBool("grounded", CheckIfGrounded());
+        //moves the vespa right at a rate of speed
+        rb.AddForce(Vector3.right * speed);
 
         //prevents the vespa from constantly increasing speed
         if (rb.velocity.magnitude > speed * 2)
@@ -67,32 +64,15 @@ public class PlayerScript : MonoBehaviour
 
         //Unity's built in gravity sucks, makes it too floaty when falling
         //so this is my own gravity code
-        Vector3 gravity = gravityScale * Vector3.down;
-        rb.AddForce(gravity, ForceMode.Acceleration);
+        //Vector3 gravity = gravityScale * Vector3.down;
+        //rb.AddForce(gravity, ForceMode.Acceleration);
 
-
-        //Tilting feature no longer needed
-        /*if (!CheckIfGrounded())
-        {
-            if (rb.velocity.y < 0)
-            {
-                transform.localRotation = Quaternion.Euler(25, 0, 0);
-            }
-
-            else if (rb.velocity.y > 0)
-            {
-                transform.localRotation = Quaternion.Euler(-25, 0, 0);
-            }
-        }
-        else
-        {
-            transform.localRotation = Quaternion.Euler(0, 0, 0);
-        }*/
 
         if(CheckforCar())
         {
-            rb.AddForce(-move * 4, ForceMode.Impulse);
-           // Debug.Log("crash");
+            //bounces the player back with a force 4 times as strong as their velocity on impact
+            rb.AddForce(Vector3.left * rb.velocity.x * 4, ForceMode.Impulse);
+            Debug.Log("crash");
         }
     }
 
@@ -124,20 +104,16 @@ public class PlayerScript : MonoBehaviour
         Debug.DrawRay(transform.position + offset, transform.forward, Color.red);
         if (Physics.Raycast(ray, 1.5f, car))
         {
-            //Debug.Log("crash");
             return true;
         }
 
         return false;
     }
 
-    //called by the animation event, so that it jumps
+    //called by the jumpOff animation event, so that it jumps
     //when the correct frame plays
     public void JumpOff()
     {
-        //Debug.Log("!!!");
-        jumpSpeed = 4000;
-        move = new Vector3(speed, jumpSpeed);
-        rb.AddForce(move);
+        rb.AddForce(Vector3.up * jumpForce);
     }
 }
