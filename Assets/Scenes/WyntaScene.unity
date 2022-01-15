@@ -481,7 +481,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: 384aa102caf1df14cbe897e229a5240c, type: 3}
       propertyPath: m_Name
-      value: vespa
+      value: player
       objectReference: {fileID: 0}
     - target: {fileID: 5866666021909216657, guid: 384aa102caf1df14cbe897e229a5240c, type: 3}
       propertyPath: m_Controller
