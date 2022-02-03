@@ -36,8 +36,7 @@ public class PlayerScript : MonoBehaviour
         {
             if (CheckIfGrounded())
             {
-                
-                animator.Play("jumpOff");
+                animator.SetTrigger("jump");
             }
         }
         else
@@ -45,6 +44,17 @@ public class PlayerScript : MonoBehaviour
             jumpSpeed = 0;
         }
 
+        if (Input.GetKey(KeyCode.DownArrow))
+        {
+            if (CheckIfGrounded())
+            {
+                animator.SetBool("slide", true);
+            }
+        }
+        else
+        {
+            animator.SetBool("slide", false);
+        }
         //constantly changes the speed
         move = new Vector3(speed, jumpSpeed);
        rb.AddForce(move);
@@ -71,24 +81,7 @@ public class PlayerScript : MonoBehaviour
         rb.AddForce(gravity, ForceMode.Acceleration);
 
 
-        //Tilting feature no longer needed
-        /*if (!CheckIfGrounded())
-        {
-            if (rb.velocity.y < 0)
-            {
-                transform.localRotation = Quaternion.Euler(25, 0, 0);
-            }
-
-            else if (rb.velocity.y > 0)
-            {
-                transform.localRotation = Quaternion.Euler(-25, 0, 0);
-            }
-        }
-        else
-        {
-            transform.localRotation = Quaternion.Euler(0, 0, 0);
-        }*/
-
+     
         if(CheckforCar())
         {
             rb.AddForce(-move * 4, ForceMode.Impulse);
