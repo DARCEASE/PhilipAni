@@ -21,16 +21,17 @@ public class ParalaxController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        timer += Time.deltaTime;
-       
-        if(isLoop)
+        //  timer += Time.deltaTime;
+
+        transform.position += new Vector3(spd, 0, 0);
+        if (isLoop)
         {
-            transform.position += new Vector3 (spd, 0, 0);
+            transform.position += new Vector3(spd, 0, 0);
             LoopingFunction();
         }
-        else
+        else if (!isLoop && transform.position.x > endpos.x)
         {
-            transform.position = Vector3.Lerp(startpos, endpos, spd * timer); //Has all the GameObjects move at their own custom positions and speeds
+            transform.position += new Vector3(spd, 0, 0);
         }
     }
 
