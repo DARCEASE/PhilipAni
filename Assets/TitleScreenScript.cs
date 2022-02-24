@@ -59,7 +59,7 @@ public class TitleScreenScript : MonoBehaviour
             spawner.SetActive(false);
         }
 
-        if(gameTimer > 85)
+        if(gameTimer > 70)
         {
             
             endScreen.SetActive(true);
@@ -80,6 +80,6 @@ public class TitleScreenScript : MonoBehaviour
 
     public void StartOver()
     {
-        SceneManager.LoadScene(1);
+        SceneManager.LoadScene(0);
     }
 }
