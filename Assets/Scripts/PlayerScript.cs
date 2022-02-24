@@ -13,6 +13,8 @@ public class PlayerScript : MonoBehaviour
     public LayerMask ground, car;
     public Vector3 collision;
 
+    public int collidedCarAmount;
+
     public float gravityScale;
 
     public AnimationClip jump;
@@ -56,7 +58,7 @@ public class PlayerScript : MonoBehaviour
             animator.SetBool("slide", false);
         }
         //constantly changes the speed
-        move = new Vector3(speed, jumpSpeed);
+        move = new Vector3(0, jumpSpeed);
        rb.AddForce(move);
 
     }
@@ -71,8 +73,8 @@ public class PlayerScript : MonoBehaviour
         animator.SetBool("grounded", CheckIfGrounded());
 
         //prevents the vespa from constantly increasing speed
-        if (rb.velocity.magnitude > speed * 2)
-            rb.velocity = Vector3.ClampMagnitude(rb.velocity, speed);
+        //if (rb.velocity.magnitude > speed * 2)
+          //  rb.velocity = Vector3.ClampMagnitude(rb.velocity, speed);
 
 
         //Unity's built in gravity sucks, makes it too floaty when falling
@@ -84,7 +86,8 @@ public class PlayerScript : MonoBehaviour
      
         if(CheckforCar())
         {
-            rb.AddForce(-move * 4, ForceMode.Impulse);
+           // collidedCarAmount += 1;
+           // rb.AddForce(-move * 4, ForceMode.Impulse);
            // Debug.Log("crash");
         }
     }
@@ -129,8 +132,16 @@ public class PlayerScript : MonoBehaviour
     public void JumpOff()
     {
         //Debug.Log("!!!");
-        jumpSpeed = 4000;
-        move = new Vector3(speed, jumpSpeed);
+        jumpSpeed = 1700;
+        move = new Vector3(0, jumpSpeed);
         rb.AddForce(move);
+    }
+
+    private void OnCollisionEnter(Collision collision)
+    {
+        if(collision.gameObject.layer == 7)
+        {
+            collidedCarAmount += 1;
+        }
     }
 }

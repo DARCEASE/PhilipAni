@@ -33,11 +33,11 @@ if (!isFinish && !pause.isPaused)
         {
             if (gameObject.name == "pg_city" && title.mode != 0)
             {
-                transform.position += new Vector3(spd, vspd, 0);
+                transform.position += new Vector3(spd, 0, 0);
             }
             else if (gameObject.name != "pg_city")
             {
-                transform.position += new Vector3(spd, vspd, 0);
+                transform.position += new Vector3(spd, 0, 0);
             }
             
             if (isLoop && !pause.isPaused)
@@ -50,6 +50,7 @@ if (!isFinish && !pause.isPaused)
 
     public void LoopingFunction()
     {
+        
         if(transform.position.x <= endpos.x)
         {
             transform.position = startpos;

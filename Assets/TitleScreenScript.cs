@@ -14,6 +14,10 @@ public class TitleScreenScript : MonoBehaviour
     public PauseScript pause;
     public float spd, time, t;
 
+    public float speed;
+    public Vector3 offset;
+
+    public GameObject spawner, player;
     // Start is called before the first frame update
     void Start()
     {
@@ -36,6 +40,19 @@ public class TitleScreenScript : MonoBehaviour
                 mode = 2;
             }
         }
+
+        if(mode == 2)
+        {
+            player.SetActive(true);
+            spawner.SetActive(true);
+        }
+        else
+        {
+            player.SetActive(false);
+            spawner.SetActive(false);
+        }
+
+   
     }
 
     public void StartButton()

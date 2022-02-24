@@ -4,13 +4,16 @@ using UnityEngine;
 
 public class SpawnScript : MonoBehaviour
 {
-    public GameObject thing;
-    public LayerMask player;
+    //public GameObject thing;
+    //public LayerMask player;
 
     public Vector3 offset;
-    public int obstacleNum;
+   // public int obstacleNum;
 
     public List<GameObject> obstacles;
+
+    public float timer;
+    public int min, max;
     // Start is called before the first frame update
     void Start()
     {
@@ -20,8 +23,10 @@ public class SpawnScript : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (DetectedPlayer())
+        timer += Time.deltaTime;
+        if(timer > Random.Range(min,max))
             SpawnObstacle();
+
     }
 
     void SpawnObstacle()
@@ -35,17 +40,12 @@ public class SpawnScript : MonoBehaviour
             Instantiate(thing, transform.position + offset, Quaternion.identity);
             obstacleNum += 1;
         }*/
-
-        //Planned Code for the future:
-        if (obstacleNum < 1)
-        {
             int num = Random.Range(0, obstacles.Count);
             Instantiate(obstacles[num].gameObject, transform.position + offset, Quaternion.identity);
-            obstacleNum += 1;
-        }
+            timer = 0;
     }
 
-    bool DetectedPlayer()
+    /*bool DetectedPlayer()
     {
         var ray = new Ray(transform.position, -transform.right);
         RaycastHit hit;
@@ -58,5 +58,5 @@ public class SpawnScript : MonoBehaviour
         }
 
         return false;
-    }
+    }*/
 }
