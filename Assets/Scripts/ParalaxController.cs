@@ -10,15 +10,17 @@ public class ParalaxController : MonoBehaviour
     //startpos - the starting position of each GameObject
     //endpos - the ending position of each GameObject
 
-    public bool isLoop; //bool to check if the object will loop
+    public bool isLoop, isFinish; //bool to check if the object will loop
     public GameObject store;
     public PauseScript pause;
+    public TitleScreenScript title;
 
     // Start is called before the first frame update
     void Start()
     {
         store = GameObject.Find("Main Camera");
         pause = store.GetComponent<PauseScript>();
+        title = store.GetComponent<TitleScreenScript>();
     }
 
     // Update is called once per frame
@@ -27,14 +29,22 @@ public class ParalaxController : MonoBehaviour
         //  timer += Time.deltaTime;
       
         //transform.position += new Vector3(spd, 0, 0);
-        if (isLoop && !pause.isPaused)
+if (!isFinish && !pause.isPaused)
         {
-            transform.position += new Vector3(spd, vspd, 0);
-            LoopingFunction();
-        }
-        else if (!isLoop && transform.position.x > endpos.x && transform.position.y <= endpos.y && !pause.isPaused)
-        {
-            transform.position += new Vector3(spd, vspd, 0);
+            if (gameObject.name == "pg_city" && title.mode != 0)
+            {
+                transform.position += new Vector3(spd, vspd, 0);
+            }
+            else if (gameObject.name != "pg_city")
+            {
+                transform.position += new Vector3(spd, vspd, 0);
+            }
+            
+            if (isLoop && !pause.isPaused)
+            {
+                LoopingFunction();
+            }
+
         }
     }
 

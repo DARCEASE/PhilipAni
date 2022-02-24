@@ -7,23 +7,27 @@ public class PauseScript : MonoBehaviour
 {
     public bool isPaused;
     public GameObject pausedPanel, pauseButton;
+    public TitleScreenScript title;
 
     // Start is called before the first frame update
     void Start()
     {
-
+        title = gameObject.GetComponent<TitleScreenScript>();
     }
 
     // Update is called once per frame
     void Update()
     {
-        if(isPaused)
+       if(title.mode == 1)
         {
-            PauseFunction();
-        }
-        else
-        {
-            ResumeFunction();
+            if (isPaused)
+            {
+                PauseFunction();
+            }
+            else
+            {
+                ResumeFunction();
+            }
         }
     }
 
