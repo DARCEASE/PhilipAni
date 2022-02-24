@@ -20,7 +20,7 @@ public class ObstacleScript : MonoBehaviour
     void Update()
     {
 
-        transform.Translate(move);
+        transform.Translate(move * Time.deltaTime);
 
         if(transform.position.x < -14)
         {
