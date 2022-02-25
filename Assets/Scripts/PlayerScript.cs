@@ -156,4 +156,9 @@ public class PlayerScript : MonoBehaviour
             collidedCarAmount += 1;
         }
     }
+
+    public void StartFunction()
+    {
+        playable = true;
+    }
 }
