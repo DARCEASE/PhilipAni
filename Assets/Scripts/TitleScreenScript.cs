@@ -23,7 +23,7 @@ public class TitleScreenScript : MonoBehaviour
 
     public float gameTimer;
     public GameObject endScreen;
-    public TextMeshProUGUI counter;
+    public TextMeshProUGUI counter, debugtimer;
     // Start is called before the first frame update
     void Start()
     {
@@ -45,9 +45,13 @@ public class TitleScreenScript : MonoBehaviour
             {
                 mode = 2;
             }
+
         }
 
-        if(mode == 2)
+        debugtimer.text = "TIME: " + gameTimer.ToString();
+
+
+        if (mode == 2)
         {
             gameTimer += Time.deltaTime;
             player.SetActive(true);

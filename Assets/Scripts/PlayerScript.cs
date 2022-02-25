@@ -48,7 +48,6 @@ public class PlayerScript : MonoBehaviour
             {
                 if (CheckIfGrounded())
                 {
-                    jumpSound.Play();
                     animator.SetTrigger("jump");
                 }
             }
@@ -143,6 +142,7 @@ public class PlayerScript : MonoBehaviour
     public void JumpOff()
     {
         //Debug.Log("!!!");
+        jumpSound.Play();
         jumpSpeed = 1700;
         move = new Vector3(0, jumpSpeed);
         rb.AddForce(move);
