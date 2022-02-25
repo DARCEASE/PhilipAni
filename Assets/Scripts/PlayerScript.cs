@@ -39,10 +39,10 @@ public class PlayerScript : MonoBehaviour
         {
             vespaSounds.Play();
             //resets the scene
-            if (Input.GetKey(KeyCode.LeftShift))
-            {
-                SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
-            }
+           // if (Input.GetKey(KeyCode.LeftShift))
+           // {
+            //    SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
+           // }
 
             if (Input.GetKeyDown(KeyCode.Space))
             {
@@ -57,17 +57,17 @@ public class PlayerScript : MonoBehaviour
                 jumpSpeed = 0;
             }
 
-            if (Input.GetKey(KeyCode.LeftShift))
-            {
-                if (CheckIfGrounded())
-                {
-                    animator.SetBool("slide", true);
-                }
-            }
-            else
-            {
-                animator.SetBool("slide", false);
-            }
+           // if (Input.GetKey(KeyCode.LeftShift))
+          //  {
+             //   if (CheckIfGrounded())
+             //   {
+              //      animator.SetBool("slide", true);
+             //   }
+           // }
+          //  else
+          //  {
+          //      animator.SetBool("slide", false);
+          //  }
             //constantly changes the speed
             move = new Vector3(0, jumpSpeed);
             rb.AddForce(move);
