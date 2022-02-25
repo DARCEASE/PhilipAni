@@ -23,7 +23,7 @@ public class TitleScreenScript : MonoBehaviour
 
     public float gameTimer;
     public GameObject endScreen;
-    public TextMeshProUGUI counter, debugtimer;
+    public TextMeshProUGUI counter;
     // Start is called before the first frame update
     void Start()
     {
@@ -48,12 +48,12 @@ public class TitleScreenScript : MonoBehaviour
 
         }
 
-        debugtimer.text = "TIME: " + gameTimer.ToString();
+      
 
 
         if (mode == 2)
         {
-            gameTimer += Time.deltaTime;
+
             player.SetActive(true);
             spawner.SetActive(true);
             bspawner.SetActive(true);
@@ -69,13 +69,6 @@ public class TitleScreenScript : MonoBehaviour
             
         }
 
-        if(gameTimer > 70)
-        {
-            
-            endScreen.SetActive(true);
-            counter.text = player.GetComponent<PlayerScript>().collidedCarAmount.ToString();
-            mode = 3;
-        }
 
         if(mode == 3)
         {
