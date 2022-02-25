@@ -18,6 +18,7 @@ public class PlayerScript : MonoBehaviour
     public float gravityScale;
 
     public AnimationClip jump;
+    public bool playable;
     // Start is called before the first frame update
     void Start()
     {
@@ -28,39 +29,41 @@ public class PlayerScript : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        //resets the scene
-        if(Input.GetKey(KeyCode.LeftShift))
+        if (playable)
         {
-            SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
-        }
-
-        if(Input.GetKeyDown(KeyCode.Return))
-        {
-            if (CheckIfGrounded())
+            //resets the scene
+            if (Input.GetKey(KeyCode.LeftShift))
             {
-                animator.SetTrigger("jump");
+                SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
             }
-        }
-        else
-        {
-            jumpSpeed = 0;
-        }
 
-        if (Input.GetKey(KeyCode.DownArrow))
-        {
-            if (CheckIfGrounded())
+            if (Input.GetKeyDown(KeyCode.Return))
             {
-                animator.SetBool("slide", true);
+                if (CheckIfGrounded())
+                {
+                    animator.SetTrigger("jump");
+                }
             }
-        }
-        else
-        {
-            animator.SetBool("slide", false);
-        }
-        //constantly changes the speed
-        move = new Vector3(0, jumpSpeed);
-       rb.AddForce(move);
+            else
+            {
+                jumpSpeed = 0;
+            }
 
+            if (Input.GetKey(KeyCode.DownArrow))
+            {
+                if (CheckIfGrounded())
+                {
+                    animator.SetBool("slide", true);
+                }
+            }
+            else
+            {
+                animator.SetBool("slide", false);
+            }
+            //constantly changes the speed
+            move = new Vector3(0, jumpSpeed);
+            rb.AddForce(move);
+        }
     }
 
     private void FixedUpdate()
