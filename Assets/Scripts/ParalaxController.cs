@@ -41,9 +41,14 @@ if (!isFinish && !pause.isPaused)
                 {
                 transform.Translate(-spd, vspd, 0); 
             }
-            else if (gameObject.name != "pg_city")
+            else if (gameObject.name != "pg_city" && gameObject.tag != "bridge")
             {
                 transform.Translate(-spd, 0, 0);
+            }
+            else if (gameObject.tag == "bridge")
+            {
+                startpos = new Vector3(startpos.x, transform.position.y, transform.position.z);
+                transform.Translate(0, -spd, 0);
             }
             
             if (isLoop && !pause.isPaused)
