@@ -894,7 +894,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4c79c3c9f0ff8434cb9d52db93470235, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  timer: 30
+  timer: 99999
   spd: 0.01
   colorTime: 0
   t: 0
@@ -5540,11 +5540,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   offset: {x: 0, y: 0, z: 0}
   obstacles:
-  - {fileID: 3770858703917555751, guid: cf821ab247485e7429f4c2f5225a92ca, type: 3}
   - {fileID: 1923261524879153800, guid: beb4300a8db29484a8f64cba748c0611, type: 3}
+  - {fileID: 8687777482876027940, guid: e61431bb5655a8e40820cad378342015, type: 3}
+  - {fileID: 3770858703917555751, guid: cf821ab247485e7429f4c2f5225a92ca, type: 3}
   timer: 0
-  min: 5
-  max: 20
+  min: 4
+  max: 6
 --- !u!4 &1736126391
 Transform:
   m_ObjectHideFlags: 0
@@ -6472,7 +6473,7 @@ RectTransform:
   - {fileID: 365036087}
   - {fileID: 913999419}
   m_Father: {fileID: 0}
-  m_RootOrder: 2
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
@@ -6726,7 +6727,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3075290202151794306, guid: 098c94c496044aa41b087d38015ef9d2, type: 3}
       propertyPath: m_RootOrder
-      value: 3
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 3075290202151794306, guid: 098c94c496044aa41b087d38015ef9d2, type: 3}
       propertyPath: m_LocalPosition.x

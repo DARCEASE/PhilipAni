@@ -21,7 +21,7 @@ public class SoccarballScript : MonoBehaviour
 
         if (transform.position.x < -14)
         {
-            Destroy(transform.parent.gameObject);
+            Destroy(gameObject);
         }
     }
 
