@@ -5,20 +5,32 @@ using UnityEngine.SceneManagement;
 
 public class PlayerScript : MonoBehaviour
 {
+
+    public AudioSource jumpSound;
+    public AudioSource vespaSounds;
+    public AudioSource hitSound;
+    //music 
+
     public float speed, jumpSpeed;
     public Vector3 move;
     public Rigidbody rb;
     public Animator animator;
 
-    public LayerMask ground, car;
+    public LayerMask ground, obs;
     public Vector3 collision;
+
+    public int collidedAmount, score;
 
     public float gravityScale;
 
+
+
     public AnimationClip jump;
+    public bool playable;
     // Start is called before the first frame update
     void Start()
     {
+        playable = true;
         rb = GetComponent<Rigidbody>();
         animator = GetComponent<Animator>();
     }
@@ -26,29 +38,44 @@ public class PlayerScript : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        //resets the scene
-        if(Input.GetKey(KeyCode.LeftShift))
+        if (playable)
         {
-            SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
-        }
+            vespaSounds.Play();
+            //resets the scene
+           // if (Input.GetKey(KeyCode.LeftShift))
+           // {
+            //    SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
+           // }
 
-        if(Input.GetKeyDown(KeyCode.Return))
-        {
-            if (CheckIfGrounded())
+            if (Input.GetKeyDown(KeyCode.Space))
             {
-                
-                animator.Play("jumpOff");
+                if (CheckIfGrounded())
+                {
+                    animator.SetTrigger("jump");
+                }
             }
-        }
-        else
-        {
-            jumpSpeed = 0;
-        }
+            else
+            {
+                jumpSpeed = 0;
+            }
 
-        //constantly changes the speed
-        move = new Vector3(speed, jumpSpeed);
-       rb.AddForce(move);
+           // if (Input.GetKey(KeyCode.LeftShift))
+          //  {
+             //   if (CheckIfGrounded())
+             //   {
+              //      animator.SetBool("slide", true);
+             //   }
+           // }
+          //  else
+          //  {
+          //      animator.SetBool("slide", false);
+          //  }
+            //constantly changes the speed
+            move = new Vector3(0, jumpSpeed);
+            rb.AddForce(move);
 
+
+        }
     }
 
     private void FixedUpdate()
@@ -61,8 +88,8 @@ public class PlayerScript : MonoBehaviour
         animator.SetBool("grounded", CheckIfGrounded());
 
         //prevents the vespa from constantly increasing speed
-        if (rb.velocity.magnitude > speed * 2)
-            rb.velocity = Vector3.ClampMagnitude(rb.velocity, speed);
+        //if (rb.velocity.magnitude > speed * 2)
+          //  rb.velocity = Vector3.ClampMagnitude(rb.velocity, speed);
 
 
         //Unity's built in gravity sucks, makes it too floaty when falling
@@ -71,27 +98,11 @@ public class PlayerScript : MonoBehaviour
         rb.AddForce(gravity, ForceMode.Acceleration);
 
 
-        //Tilting feature no longer needed
-        /*if (!CheckIfGrounded())
-        {
-            if (rb.velocity.y < 0)
-            {
-                transform.localRotation = Quaternion.Euler(25, 0, 0);
-            }
-
-            else if (rb.velocity.y > 0)
-            {
-                transform.localRotation = Quaternion.Euler(-25, 0, 0);
-            }
-        }
-        else
-        {
-            transform.localRotation = Quaternion.Euler(0, 0, 0);
-        }*/
-
+     
         if(CheckforCar())
         {
-            rb.AddForce(-move * 4, ForceMode.Impulse);
+           // collidedCarAmount += 1;
+           // rb.AddForce(-move * 4, ForceMode.Impulse);
            // Debug.Log("crash");
         }
     }
@@ -122,7 +133,7 @@ public class PlayerScript : MonoBehaviour
         RaycastHit hit;
 
         Debug.DrawRay(transform.position + offset, transform.forward, Color.red);
-        if (Physics.Raycast(ray, 1.5f, car))
+        if (Physics.Raycast(ray, 1.5f, obs))
         {
             //Debug.Log("crash");
             return true;
@@ -136,8 +147,23 @@ public class PlayerScript : MonoBehaviour
     public void JumpOff()
     {
         //Debug.Log("!!!");
-        jumpSpeed = 4000;
-        move = new Vector3(speed, jumpSpeed);
+        jumpSound.Play();
+        jumpSpeed = 1700;
+        move = new Vector3(0, jumpSpeed);
         rb.AddForce(move);
+    }
+
+    private void OnCollisionEnter(Collision collision)
+    {
+        if(collision.gameObject.layer == 7)
+        {
+            hitSound.Play();
+            collidedCarAmount += 1;
+        }
+    }
+
+    public void StartFunction()
+    {
+        playable = true;
     }
 }

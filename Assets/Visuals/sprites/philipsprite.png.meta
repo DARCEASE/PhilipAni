@@ -8,6 +8,9 @@ TextureImporter:
   - first:
       213: -5558711188504639845
     second: philipsprite_1
+  - first:
+      213: -4821868633657905717
+    second: philipsprite_2
   externalObjects: {}
   serializedVersion: 11
   mipmaps:
@@ -182,6 +185,27 @@ TextureImporter:
       bones: []
       spriteID: b96013810ad7bd2b0800000000000000
       internalID: -5558711188504639845
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: philipsprite_2
+      rect:
+        serializedVersion: 2
+        x: 256
+        y: 0
+        width: 128
+        height: 128
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: bcde8396608451db0800000000000000
+      internalID: -4821868633657905717
       vertices: []
       indices: 
       edges: []
