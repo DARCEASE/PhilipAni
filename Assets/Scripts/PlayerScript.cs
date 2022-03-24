@@ -10,18 +10,21 @@ public class PlayerScript : MonoBehaviour
     public Rigidbody rb;
     public Animator animator;
 
-    public LayerMask ground, car;
+    public LayerMask ground, obs;
     public Vector3 collision;
 
-    public int collidedCarAmount;
+    public int collidedAmount, score;
 
     public float gravityScale;
+
+
 
     public AnimationClip jump;
     public bool playable;
     // Start is called before the first frame update
     void Start()
     {
+        playable = true;
         rb = GetComponent<Rigidbody>();
         animator = GetComponent<Animator>();
     }
@@ -60,9 +63,16 @@ public class PlayerScript : MonoBehaviour
             {
                 animator.SetBool("slide", false);
             }
+
+            if (CheckforCar())
+            {
+                //Debug.Log("boing");
+            }
             //constantly changes the speed
             move = new Vector3(0, jumpSpeed);
             rb.AddForce(move);
+
+
         }
     }
 
@@ -121,7 +131,7 @@ public class PlayerScript : MonoBehaviour
         RaycastHit hit;
 
         Debug.DrawRay(transform.position + offset, transform.forward, Color.red);
-        if (Physics.Raycast(ray, 1.5f, car))
+        if (Physics.Raycast(ray, 1.5f, obs))
         {
             //Debug.Log("crash");
             return true;
@@ -144,7 +154,7 @@ public class PlayerScript : MonoBehaviour
     {
         if(collision.gameObject.layer == 7)
         {
-            collidedCarAmount += 1;
+            score -= 100;
         }
     }
 }

@@ -69,7 +69,7 @@ public class TitleScreenScript : MonoBehaviour
         {
             
             endScreen.SetActive(true);
-            counter.text = player.GetComponent<PlayerScript>().collidedCarAmount.ToString();
+            counter.text = player.GetComponent<PlayerScript>().collidedAmount.ToString();
             mode = 3;
         }
 

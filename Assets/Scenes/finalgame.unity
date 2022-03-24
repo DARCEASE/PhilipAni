@@ -4419,6 +4419,7 @@ MonoBehaviour:
   offset: {x: 0, y: 0, z: 0}
   obstacles:
   - {fileID: 3770858703917555751, guid: cf821ab247485e7429f4c2f5225a92ca, type: 3}
+  - {fileID: 1923261524879153800, guid: beb4300a8db29484a8f64cba748c0611, type: 3}
   timer: 0
   min: 5
   max: 20
@@ -5399,7 +5400,7 @@ PrefabInstance:
       objectReference: {fileID: 2100000, guid: acc89929a95b36f49a577c2ba1c3a9ac, type: 2}
     - target: {fileID: 1667710571011173148, guid: 098c94c496044aa41b087d38015ef9d2, type: 3}
       propertyPath: m_Layer
-      value: 3
+      value: 7
       objectReference: {fileID: 0}
     - target: {fileID: 2442763584473623608, guid: 098c94c496044aa41b087d38015ef9d2, type: 3}
       propertyPath: m_Name
@@ -5407,7 +5408,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2442763584473623608, guid: 098c94c496044aa41b087d38015ef9d2, type: 3}
       propertyPath: m_Layer
-      value: 3
+      value: 7
       objectReference: {fileID: 0}
     - target: {fileID: 3075290202151794306, guid: 098c94c496044aa41b087d38015ef9d2, type: 3}
       propertyPath: m_RootOrder
@@ -5455,7 +5456,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3253597123098461832, guid: 098c94c496044aa41b087d38015ef9d2, type: 3}
       propertyPath: m_Layer
-      value: 3
+      value: 7
       objectReference: {fileID: 0}
     - target: {fileID: 3253597123098461834, guid: 098c94c496044aa41b087d38015ef9d2, type: 3}
       propertyPath: m_SortingOrder
@@ -5463,23 +5464,27 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3525824906897396557, guid: 098c94c496044aa41b087d38015ef9d2, type: 3}
       propertyPath: m_Layer
-      value: 3
+      value: 7
       objectReference: {fileID: 0}
     - target: {fileID: 3839564255008028059, guid: 098c94c496044aa41b087d38015ef9d2, type: 3}
       propertyPath: m_Layer
-      value: 3
+      value: 7
       objectReference: {fileID: 0}
     - target: {fileID: 5513179061631036502, guid: 098c94c496044aa41b087d38015ef9d2, type: 3}
       propertyPath: m_Layer
-      value: 3
+      value: 7
+      objectReference: {fileID: 0}
+    - target: {fileID: 6757613126831305414, guid: 098c94c496044aa41b087d38015ef9d2, type: 3}
+      propertyPath: m_Layer
+      value: 7
       objectReference: {fileID: 0}
     - target: {fileID: 8187226218514610849, guid: 098c94c496044aa41b087d38015ef9d2, type: 3}
       propertyPath: m_Layer
-      value: 3
+      value: 7
       objectReference: {fileID: 0}
     - target: {fileID: 8282892462266096844, guid: 098c94c496044aa41b087d38015ef9d2, type: 3}
       propertyPath: m_Layer
-      value: 3
+      value: 7
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 098c94c496044aa41b087d38015ef9d2, type: 3}
@@ -5508,13 +5513,15 @@ MonoBehaviour:
   ground:
     serializedVersion: 2
     m_Bits: 64
-  car:
+  obs:
     serializedVersion: 2
     m_Bits: 128
   collision: {x: 0, y: 0, z: 0}
-  collidedCarAmount: 0
+  collidedAmount: 0
+  score: 10000
   gravityScale: 75
   jump: {fileID: 0}
+  playable: 0
 --- !u!65 &2094432889
 BoxCollider:
   m_ObjectHideFlags: 0
