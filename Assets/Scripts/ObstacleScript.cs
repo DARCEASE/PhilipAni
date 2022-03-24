@@ -19,6 +19,11 @@ public class ObstacleScript : MonoBehaviour
         {
             move = new Vector3(0,speed, 0);
         }
+
+        if (gameObject.name == "cone")
+        {
+           // transform.localRotation = Quaternion.Euler()
+        }
     }
 
     // Update is called once per frame

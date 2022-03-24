@@ -56,7 +56,7 @@ public class TitleScreenScript : MonoBehaviour
 
             player.SetActive(true);
             spawner.SetActive(true);
-            bspawner.SetActive(true);
+            //bspawner.SetActive(true);
         }
         else
         {
@@ -65,7 +65,7 @@ public class TitleScreenScript : MonoBehaviour
                 player.SetActive(false);
             }
                 spawner.SetActive(false);
-                bspawner.SetActive(false);
+               // bspawner.SetActive(false);
             
         }
 
