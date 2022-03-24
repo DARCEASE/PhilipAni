@@ -8,7 +8,7 @@ public class PauseScript : MonoBehaviour
     public bool isPaused;
     public GameObject pausedPanel, pauseButton;
     public TitleScreenScript title;
-
+    public GameManager main;
     public GameObject player;
     public GameObject[] obstacles;
     // Start is called before the first frame update
@@ -16,6 +16,7 @@ public class PauseScript : MonoBehaviour
     {
         player = GameObject.FindObjectOfType<PlayerScript>().gameObject;
         title = gameObject.GetComponent<TitleScreenScript>();
+        main = GetComponent<GameManager>();
     }
 
     // Update is called once per frame
@@ -53,7 +54,7 @@ public class PauseScript : MonoBehaviour
         isPaused = false;
         pausedPanel.SetActive(false);
         pauseButton.SetActive(true);
-        title.gameTimer = 0;
+        main.timer = 30;
         Time.timeScale = 1;
         RemoveCars();
     }

@@ -104,9 +104,10 @@ GameObject:
   - component: {fileID: 4904363417286215805}
   - component: {fileID: 8331684730110674904}
   - component: {fileID: 6072224864098054930}
+  - component: {fileID: 5000806167904856116}
   m_Layer: 0
   m_Name: bridgeRoad
-  m_TagString: Untagged
+  m_TagString: bridge
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -154,7 +155,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: -158832219625225489, guid: 3cb961ab2be174b47885eebff7835f3e, type: 3}
+  - {fileID: 2100000, guid: fa7071ab3bb4151428c4443380ff8674, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -176,6 +177,29 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!114 &5000806167904856116
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5711721184235901639}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 59655f521d2eee7469365f7dcd17bde8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  spd: 0.1
+  vspd: 0
+  timer: 0
+  t: 0
+  startpos: {x: 42.2, y: -5.33, z: -6.86}
+  endpos: {x: -20.3, y: -5.33, z: -6.86}
+  isLoop: 1
+  isFinish: 0
+  store: {fileID: 0}
+  pause: {fileID: 0}
+  title: {fileID: 0}
 --- !u!1001 &4865424672422157502
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -247,10 +271,18 @@ PrefabInstance:
       propertyPath: m_Name
       value: bridgepiece
       objectReference: {fileID: 0}
+    - target: {fileID: 1831828260601078800, guid: 79197ccc300c498428afc6b0d21dc7ae, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 8cf0d185de57b2743a1536563509a309, type: 2}
     - target: {fileID: 1858816941923483192, guid: 79197ccc300c498428afc6b0d21dc7ae, type: 3}
       propertyPath: m_Materials.Array.data[0]
       value: 
       objectReference: {fileID: 2100000, guid: 8ca133f3b326225469c058d528b9fd4e, type: 2}
+    - target: {fileID: 3986537019015528210, guid: 79197ccc300c498428afc6b0d21dc7ae, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 0593da4b48429a340bc5fae64842e276, type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 79197ccc300c498428afc6b0d21dc7ae, type: 3}
 --- !u!4 &4904363418206190421 stripped

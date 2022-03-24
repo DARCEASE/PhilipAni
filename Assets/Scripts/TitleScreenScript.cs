@@ -45,11 +45,15 @@ public class TitleScreenScript : MonoBehaviour
             {
                 mode = 2;
             }
+
         }
 
-        if(mode == 2)
+      
+
+
+        if (mode == 2)
         {
-            gameTimer += Time.deltaTime;
+
             player.SetActive(true);
             spawner.SetActive(true);
             bspawner.SetActive(true);

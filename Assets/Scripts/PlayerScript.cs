@@ -5,6 +5,12 @@ using UnityEngine.SceneManagement;
 
 public class PlayerScript : MonoBehaviour
 {
+
+    public AudioSource jumpSound;
+    public AudioSource vespaSounds;
+    public AudioSource hitSound;
+    //music 
+
     public float speed, jumpSpeed;
     public Vector3 move;
     public Rigidbody rb;
@@ -34,13 +40,14 @@ public class PlayerScript : MonoBehaviour
     {
         if (playable)
         {
+            vespaSounds.Play();
             //resets the scene
-            if (Input.GetKey(KeyCode.LeftShift))
-            {
-                SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
-            }
+           // if (Input.GetKey(KeyCode.LeftShift))
+           // {
+            //    SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
+           // }
 
-            if (Input.GetKeyDown(KeyCode.Return))
+            if (Input.GetKeyDown(KeyCode.Space))
             {
                 if (CheckIfGrounded())
                 {
@@ -52,22 +59,17 @@ public class PlayerScript : MonoBehaviour
                 jumpSpeed = 0;
             }
 
-            if (Input.GetKey(KeyCode.DownArrow))
-            {
-                if (CheckIfGrounded())
-                {
-                    animator.SetBool("slide", true);
-                }
-            }
-            else
-            {
-                animator.SetBool("slide", false);
-            }
-
-            if (CheckforCar())
-            {
-                //Debug.Log("boing");
-            }
+           // if (Input.GetKey(KeyCode.LeftShift))
+          //  {
+             //   if (CheckIfGrounded())
+             //   {
+              //      animator.SetBool("slide", true);
+             //   }
+           // }
+          //  else
+          //  {
+          //      animator.SetBool("slide", false);
+          //  }
             //constantly changes the speed
             move = new Vector3(0, jumpSpeed);
             rb.AddForce(move);
@@ -145,6 +147,7 @@ public class PlayerScript : MonoBehaviour
     public void JumpOff()
     {
         //Debug.Log("!!!");
+        jumpSound.Play();
         jumpSpeed = 1700;
         move = new Vector3(0, jumpSpeed);
         rb.AddForce(move);
@@ -154,7 +157,13 @@ public class PlayerScript : MonoBehaviour
     {
         if(collision.gameObject.layer == 7)
         {
-            score -= 100;
+            hitSound.Play();
+            collidedCarAmount += 1;
         }
+    }
+
+    public void StartFunction()
+    {
+        playable = true;
     }
 }
