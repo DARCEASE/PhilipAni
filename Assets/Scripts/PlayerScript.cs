@@ -158,7 +158,7 @@ public class PlayerScript : MonoBehaviour
         if(collision.gameObject.layer == 7)
         {
             hitSound.Play();
-            collidedCarAmount += 1;
+            collidedAmount += 1;
         }
     }
 

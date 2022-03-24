@@ -13,7 +13,12 @@ public class ObstacleScript : MonoBehaviour
     {
         speed = Random.Range(min, max);
         rb = GetComponent<Rigidbody>();
-        move = new Vector3(0,speed, 0);
+        move = new Vector3(speed,0, 0);
+
+        if(gameObject.name == "Cube.028")
+        {
+            move = new Vector3(0,speed, 0);
+        }
     }
 
     // Update is called once per frame
@@ -24,7 +29,7 @@ public class ObstacleScript : MonoBehaviour
 
         if(transform.position.x < -14)
         {
-            Destroy(transform.parent.gameObject);
+            Destroy(gameObject);
         }
     }
 
