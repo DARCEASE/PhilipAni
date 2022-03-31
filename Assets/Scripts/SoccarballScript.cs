@@ -19,7 +19,7 @@ public class SoccarballScript : MonoBehaviour
     {
         transform.Translate(move * Time.deltaTime);
 
-        if (transform.position.x < -14)
+        if (transform.position.x < /*14*/45)
         {
             Destroy(gameObject);
         }

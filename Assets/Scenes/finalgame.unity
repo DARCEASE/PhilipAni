@@ -5487,8 +5487,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   offset: {x: 0, y: 0, z: 0}
   obstacles:
-  - {fileID: 6363595382589149826, guid: adb9052aba83ea1459ee75643b66c599, type: 3}
-  - {fileID: 426399005291692072, guid: 7e0956db4332adb478fe444d4a009365, type: 3}
+  - {fileID: 2700928534100608302, guid: 592232cbf4fa7404383af78d4c9ef574, type: 3}
+  - {fileID: 606323270603391331, guid: 7e0956db4332adb478fe444d4a009365, type: 3}
   - {fileID: 3770858703917555751, guid: cf821ab247485e7429f4c2f5225a92ca, type: 3}
   timer: 0
   min: 4

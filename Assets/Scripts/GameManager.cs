@@ -26,7 +26,7 @@ public class GameManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        Debug.Log(mode);
+      //  Debug.Log(mode);
        if(title.mode == 2)
         {
             if (timer > 0)

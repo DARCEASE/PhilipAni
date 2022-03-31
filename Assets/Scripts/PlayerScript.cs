@@ -158,6 +158,29 @@ public class PlayerScript : MonoBehaviour
     {
         if(collision.gameObject.layer == 7)
         {
+            if (collision.gameObject.GetComponent<Animator>() == null)
+            {
+                
+                Debug.Log("missing");
+            }
+            else
+            {
+                if (collision.gameObject.GetComponent<ObstacleScript>() != null)
+                {
+                    collision.gameObject.GetComponent<ObstacleScript>().move = new Vector3(0, 0, 0);
+                }
+
+                if (collision.gameObject.GetComponent<SoccarballScript>() != null)
+                {
+                    collision.gameObject.GetComponent<SoccarballScript>().move = new Vector3(0, 0, 0);
+                }
+
+                collision.gameObject.GetComponent<Rigidbody>().constraints = RigidbodyConstraints.None;
+                collision.gameObject.GetComponent<Animator>().enabled = true;
+                collision.gameObject.GetComponent<Animator>().Play()
+                Debug.Log("not missing");
+            }
+
             gothit = true;
             hitSound.Play();
             //score -= 100;
