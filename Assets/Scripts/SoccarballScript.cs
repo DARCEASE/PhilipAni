@@ -19,10 +19,15 @@ public class SoccarballScript : MonoBehaviour
     {
         transform.Translate(move * Time.deltaTime);
 
-        if (transform.position.x < /*14*/45)
+        if (transform.position.x < -15)
         {
             Destroy(gameObject);
         }
+    }
+
+    public void FlyAway()
+    {
+
     }
 
     private void OnCollisionEnter(Collision collision)

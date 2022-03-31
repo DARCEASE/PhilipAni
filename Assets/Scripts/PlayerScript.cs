@@ -158,7 +158,7 @@ public class PlayerScript : MonoBehaviour
     {
         if(collision.gameObject.layer == 7)
         {
-            if (collision.gameObject.GetComponent<Animator>() == null)
+           /* if (collision.gameObject.GetComponent<Animator>() == null)
             {
                 
                 Debug.Log("missing");
@@ -177,8 +177,13 @@ public class PlayerScript : MonoBehaviour
 
                 collision.gameObject.GetComponent<Rigidbody>().constraints = RigidbodyConstraints.None;
                 collision.gameObject.GetComponent<Animator>().enabled = true;
-                collision.gameObject.GetComponent<Animator>().Play()
+           
                 Debug.Log("not missing");
+            }*/
+
+            if(collision.gameObject.name == "child")
+            {
+                collision.gameObject.GetComponent<FlyAway>().enabled = true;
             }
 
             gothit = true;
