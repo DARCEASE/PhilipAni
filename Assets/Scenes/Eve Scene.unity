@@ -221,6 +221,7 @@ MonoBehaviour:
   spd: -0.005
   vspd: 0
   timer: 0
+  t: 0
   startpos: {x: 23.057, y: 0.4, z: 0}
   endpos: {x: -21.5, y: 0.4, z: 0}
   isLoop: 1
@@ -1130,6 +1131,7 @@ MonoBehaviour:
   spd: -0.00015
   vspd: 0
   timer: 0
+  t: 0
   startpos: {x: 10000, y: 0, z: 0}
   endpos: {x: -10000, y: 100000, z: 0}
   isLoop: 0
@@ -1636,6 +1638,7 @@ MonoBehaviour:
   spd: -0.0008
   vspd: 0
   timer: 0
+  t: 0
   startpos: {x: -8.1, y: 0.6, z: 0}
   endpos: {x: -21, y: 0.6, z: 0}
   isLoop: 0
@@ -1813,10 +1816,10 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: heehee
+  m_text: 
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: a8e6b5ed0c5046945aa9537e2a824a84, type: 2}
-  m_sharedMaterial: {fileID: 7827827706141551325, guid: a8e6b5ed0c5046945aa9537e2a824a84, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -2275,6 +2278,7 @@ MonoBehaviour:
   spd: -0.00015
   vspd: 0.00015
   timer: 0
+  t: 0
   startpos: {x: 8.6, y: -2, z: 0}
   endpos: {x: 7, y: 50, z: 0}
   isLoop: 0
@@ -2380,6 +2384,7 @@ MonoBehaviour:
   spd: -0.0004
   vspd: 0
   timer: 0
+  t: 0
   startpos: {x: 20.67, y: 0, z: 0}
   endpos: {x: -20.6, y: 0, z: 0}
   isLoop: 1
@@ -2618,6 +2623,7 @@ MonoBehaviour:
   spd: -0.00085
   vspd: 0
   timer: 0
+  t: 0
   startpos: {x: 23.057, y: 0, z: 0}
   endpos: {x: -30.45, y: 0, z: 0}
   isLoop: 1
@@ -2895,6 +2901,9 @@ MonoBehaviour:
   pausedPanel: {fileID: 2131623808}
   pauseButton: {fileID: 1683595962}
   title: {fileID: 0}
+  main: {fileID: 0}
+  player: {fileID: 0}
+  obstacles: []
 --- !u!114 &1540837251
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2922,6 +2931,14 @@ MonoBehaviour:
   spd: 0.75
   time: 0
   t: 0
+  speed: 0
+  offset: {x: 0, y: 0, z: 0}
+  spawner: {fileID: 0}
+  player: {fileID: 0}
+  bspawner: {fileID: 0}
+  gameTimer: 0
+  endScreen: {fileID: 0}
+  counter: {fileID: 0}
 --- !u!1 &1541905381
 GameObject:
   m_ObjectHideFlags: 0
@@ -3020,6 +3037,7 @@ MonoBehaviour:
   spd: -0.00085
   vspd: 0
   timer: 0
+  t: 0
   startpos: {x: 23.057, y: 0, z: 0}
   endpos: {x: -21, y: 0, z: 0}
   isLoop: 1
@@ -3258,6 +3276,7 @@ MonoBehaviour:
   spd: -0.005
   vspd: 0
   timer: 0
+  t: 0
   startpos: {x: 23.057, y: 0.4, z: 0}
   endpos: {x: -21.5, y: 0.4, z: 0}
   isLoop: 1
@@ -3363,6 +3382,7 @@ MonoBehaviour:
   spd: -0.0004
   vspd: 0
   timer: 0
+  t: 0
   startpos: {x: 20.67, y: 0, z: 0}
   endpos: {x: -20.6, y: 0, z: 0}
   isLoop: 1
@@ -3679,6 +3699,7 @@ MonoBehaviour:
   spd: -0.0005
   vspd: 0
   timer: 0
+  t: 0
   startpos: {x: 12, y: 0, z: 0}
   endpos: {x: -13, y: 0, z: 0}
   isLoop: 0

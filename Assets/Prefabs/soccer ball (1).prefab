@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 6093759080659677143}
   - component: {fileID: 6093759080659677140}
   - component: {fileID: 6093759080659677141}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: soccer ball (1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -111,7 +111,7 @@ Rigidbody:
   m_UseGravity: 1
   m_IsKinematic: 0
   m_Interpolate: 0
-  m_Constraints: 0
+  m_Constraints: 112
   m_CollisionDetection: 0
 --- !u!114 &6093759080659677141
 MonoBehaviour:
@@ -126,7 +126,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   move: {x: -10, y: 0, z: 0}
-  jump: {x: 0, y: 3, z: 0}
+  jump: {x: 0, y: 9, z: 0}
   ground:
     serializedVersion: 2
     m_Bits: 64

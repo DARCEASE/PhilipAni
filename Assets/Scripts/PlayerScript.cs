@@ -24,15 +24,16 @@ public class PlayerScript : MonoBehaviour
     public float gravityScale;
 
 
-
+    public CrachTextScript crashTxt;
     public AnimationClip jump;
-    public bool playable;
+    public bool playable, gothit;
     // Start is called before the first frame update
     void Start()
     {
         playable = true;
         rb = GetComponent<Rigidbody>();
         animator = GetComponent<Animator>();
+        crashTxt = GameObject.FindObjectOfType<CrachTextScript>();
     }
 
     // Update is called once per frame
@@ -153,13 +154,21 @@ public class PlayerScript : MonoBehaviour
         rb.AddForce(move);
     }
 
-    private void OnCollisionEnter(Collision collision)
+    public void OnCollisionEnter(Collision collision)
     {
         if(collision.gameObject.layer == 7)
         {
+            gothit = true;
             hitSound.Play();
-            collidedAmount += 1;
+            //score -= 100;
+            crashTxt.SetText();
         }
+    }
+
+    private void OnCollisionExit(Collision collision)
+    {
+        gothit = false;
+
     }
 
     public void StartFunction()

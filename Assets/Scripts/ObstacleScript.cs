@@ -2,12 +2,23 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+public enum AnimationType { bounce, spin };
+
+[System.Serializable]
+public class MovementType
+{
+
+}
+
 public class ObstacleScript : MonoBehaviour
 {
     public float speed,min,max;
     Rigidbody rb;
 
     public Vector3 move;
+
+
+   
     // Start is called before the first frame update
     void Start()
     {
